@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentation Cards</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- App Styles -->
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="./styles/main.css">
+
+  <!-- App Scripts -->
+  <script src="./src/index.js" type="module" defer></script>
+  <script src="./lib/qrious.min.js" async></script>
+</head>
+
+<body>
+  <template id="card-creator-page">
+    <style>
+      .card-creator-form {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .create-button {
+        margin-top: 1rem;
+      }
+    </style>
+
+    <h1>Presentation Cards</h1>
+
+    <p>
+      Describe yourself, and share it easy
+    </p>
+
+    <article>
+      <section>
+        <h2>Enter your information</h2>
+
+        <form name="card-creator" class="card-creator-form">
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" required>
+          <label for="address">Address:</label>
+          <input type="text" name="address" id="address" required>
+          <label for="web">Web page:</label>
+          <input type="url" name="web" id="web" required>
+          <label for="social">Social links:</label>
+          <input type="url" name="social" id="social" required>
+          <button type="submit" class="create-button">Generate</button>
+      </section>
+    </article>
+  </template>
+
+  <template id="card-share-page">
+    <h1>
+      Share your card
+    </h1>
+
+    <article>
+      <section>
+        <h2>Scan the QR code</h2>
+        <canvas id="qr"></canvas>
+      </section>
+    </article>
+  </template>
+
+  <template id="card-viewer-page">
+    <h1>
+      Hey, this is me
+    </h1>
+  </template>
+
+  <template id="not-found-page">
+    <h1>Uhm, parece estas perdido</h1>
+  </template>
+
+  <div class="base">
+    <main id="main-container"></main>
+  </div>
+</body>
+
+</html>
