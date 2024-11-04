@@ -1,20 +1,11 @@
-import { loadSheet } from './BaseStyles.js'
+import { BaseComponent } from './BaseComponent.js'
 
-export class CardCreatorPage extends HTMLElement {
+export class CardCreatorPage extends BaseComponent {
   constructor() {
-    super()
-
-    this.attachShadow({ mode: 'open' })
-
+    super('card-creator-page')
   }
 
-  async connectedCallback() {
-    const sheet = await loadSheet()
-    this.shadowRoot.adoptedStyleSheets = [sheet]
-
-    const page = document.getElementById('card-creator-page').content.cloneNode(true)
-    this.shadowRoot.appendChild(page)
-
+  onMount() {
     const form = this.shadowRoot.querySelector('form[name="card-creator"]')
     form.addEventListener('submit', this.handleSubmit.bind(this))
   }

@@ -1,14 +1,8 @@
-export class NotFoundPage extends HTMLElement {
+import { BaseComponent } from "./BaseComponent.js"
+
+export class NotFoundPage extends BaseComponent {
   constructor() {
-    super()
-
-    this.attachShadow({ mode: 'open' })
-  }
-
-  connectedCallback() {
-    const page = document.getElementById('not-found-page').content.cloneNode(true)
-    this.shadowRoot.appendChild(page)
-
+    super('not-found-page')
   }
 }
 

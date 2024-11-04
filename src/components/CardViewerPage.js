@@ -1,15 +1,10 @@
-export class CardViewerPage extends HTMLElement {
+import { BaseComponent } from "./BaseComponent.js"
+
+export class CardViewerPage extends BaseComponent {
   constructor() {
-    super()
-
-    this.attachShadow({ mode: 'open' })
-  }
-
-  connectedCallback() {
-    const page = document.getElementById('card-viewer-page').content.cloneNode(true)
-    this.shadowRoot.appendChild(page)
-
+    super('card-viewer-page')
   }
 }
+
 
 customElements.define('card-viewer-page', CardViewerPage)

@@ -1,19 +1,17 @@
-export class CardSharePage extends HTMLElement {
-  constructor() {
-    super()
+import { BaseComponent } from "./BaseComponent.js";
 
-    this.attachShadow({ mode: 'open' })
+export class CardSharePage extends BaseComponent {
+  constructor() {
+    super('card-share-page')
   }
 
-  connectedCallback() {
-    const page = document.getElementById('card-share-page').content.cloneNode(true)
-    this.shadowRoot.appendChild(page)
-
+  onMount() {
     new QRious({
       element: this.shadowRoot.getElementById('qr'),
       value: 'https://github.com/fnavarijo'
     });
   }
 }
+
 
 customElements.define('card-share-page', CardSharePage)
