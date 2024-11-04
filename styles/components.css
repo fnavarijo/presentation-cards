@@ -1,0 +1,18 @@
+/* Components */
+button {
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: 4;
+}
+
+button:hover {
+  background: hsl(163.63636363636363deg 100% 81.37254901960785%);
+  border: 2px solid hsl(163.63636363636363deg 100% 81.37254901960785%);
+  border-radius: 0;
+}
+
+button:disabled {
+  background-color: hsl(163.63636363636363deg 15% 91.37254901960785%);
+  border-radius: 0;
+  color: white;
+}

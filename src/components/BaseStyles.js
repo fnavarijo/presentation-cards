@@ -1,27 +1,9 @@
-export const sheet = new CSSStyleSheet();
+export async function loadSheet() {
+  const resetStyles = await fetch('/styles/reset.css').then(res => res.text())
+  const componentStyles = await fetch('/styles/components.css').then(res => res.text())
 
-sheet.replaceSync(`
-  input,
-  button {
-    font: inherit;
-  }
-  
-button {
-  background-color: var(--primary);
-  border: 2px solid var(--primary);
-  border-radius: 4;
-}
+  const sheet = new CSSStyleSheet();
+  sheet.replaceSync(resetStyles + '\n' + componentStyles)
 
-button:hover {
-  background: hsl(163.63636363636363deg 100% 81.37254901960785%);
-  border: 2px solid hsl(163.63636363636363deg 100% 81.37254901960785%);
-  border-radius: 0;
+  return sheet
 }
-
-button:disabled {
-  background-color: hsl(163.63636363636363deg 15% 91.37254901960785%);
-  border-radius: 0;
-  color: white;
-}
-  
-`)

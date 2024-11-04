@@ -1,14 +1,17 @@
-import { sheet } from './BaseStyles.js'
+import { loadSheet } from './BaseStyles.js'
 
 export class CardCreatorPage extends HTMLElement {
   constructor() {
     super()
 
     this.attachShadow({ mode: 'open' })
-    this.shadowRoot.adoptedStyleSheets = [sheet]
+
   }
 
-  connectedCallback() {
+  async connectedCallback() {
+    const sheet = await loadSheet()
+    this.shadowRoot.adoptedStyleSheets = [sheet]
+
     const page = document.getElementById('card-creator-page').content.cloneNode(true)
     this.shadowRoot.appendChild(page)
 
